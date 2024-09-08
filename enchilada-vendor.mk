@@ -45,4 +45,4 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/enchilada/proprietary/vendor/lib64/libgoodixfingerprintd_binder.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgoodixfingerprintd_binder.so
 
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.oneplus
+    android.hardware.biometrics.fingerprint@2.1-service.oneplus.xml
