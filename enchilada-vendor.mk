@@ -31,7 +31,6 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/enchilada/proprietary/vendor/lib/camera/oneplus6_vstab_db_0_720p_video_30fps.config:$(TARGET_COPY_OUT_VENDOR)/lib/camera/oneplus6_vstab_db_0_720p_video_30fps.config \
     vendor/oneplus/enchilada/proprietary/vendor/lib/camera/oneplus6_vstab_db_1_1080p_video_30fps.config:$(TARGET_COPY_OUT_VENDOR)/lib/camera/oneplus6_vstab_db_1_1080p_video_30fps.config \
     vendor/oneplus/enchilada/proprietary/vendor/lib/camera/oneplus6_vstab_db_1_720p_video_30fps.config:$(TARGET_COPY_OUT_VENDOR)/lib/camera/oneplus6_vstab_db_1_720p_video_30fps.config \
-    vendor/oneplus/enchilada/proprietary/vendor/lib/hw/camera.qcom.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/camera.qcom.so \
     vendor/oneplus/enchilada/proprietary/vendor/lib64/com.fingerprints.extension@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/com.fingerprints.extension@1.0.so \
     vendor/oneplus/enchilada/proprietary/vendor/lib64/fp_hal_extension.so:$(TARGET_COPY_OUT_VENDOR)/lib64/fp_hal_extension.so \
     vendor/oneplus/enchilada/proprietary/vendor/lib64/fpc_hal_common.so:$(TARGET_COPY_OUT_VENDOR)/lib64/fpc_hal_common.so \
