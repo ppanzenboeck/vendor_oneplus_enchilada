@@ -4,8 +4,349 @@
 
 soong_namespace {
     imports: [
+        "hardware/oneplus",
         "vendor/oneplus/sdm845-common",
     ],
+}
+
+cc_prebuilt_library_shared {
+    name: "com.fingerprints.extension@1.0",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/com.fingerprints.extension@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "libhidltransport",
+                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fp_hal_extension",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/fp_hal_extension.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libbinder",
+                "libhardware",
+                "libhidlbase",
+                "libhidltransport",
+                "vendor.oneplus.fingerprint.extension@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fpc_hal_common",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/fpc_hal_common.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libhardware",
+                "libcutils",
+                "fpc_tac",
+                "fpc_hal_extension",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fpc_hal_extension",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/fpc_hal_extension.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libbinder",
+                "libutils",
+                "libhidlbase",
+                "libhardware",
+                "libhidltransport",
+                "com.fingerprints.extension@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fpc_tac",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/fpc_tac.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libhardware",
+                "libQSEEComAPI",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.keymaster@3.0-impl-qti",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcrypto",
+                "libhidlbase",
+                "libutils",
+                "libcutils",
+                "libqcbor",
+                "libkeymasterdeviceutils",
+                "android.hardware.keymaster@3.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fingerprint.sdm845",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/fingerprint.sdm845.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "libbinder",
+                "libhardware",
+                "fp_hal_extension",
+                "com.fingerprints.extension@1.0",
+                "fpc_hal_common",
+                "fpc_tac",
+                "libcutils",
+                "fpc_hal_extension",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "goodix.fingerprint.sdm845",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/goodix.fingerprint.sdm845.so",
+            ],
+            shared_libs: [
+                "libgf_hal",
+                "liblog",
+                "libbinder",
+                "libhardware",
+                "libutils",
+                "libgoodixfingerprintd_binder",
+                "fp_hal_extension",
+                "vendor.oneplus.fingerprint.extension@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgf_ca",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libgf_ca.so",
+            ],
+            shared_libs: [
+                "libQSEEComAPI",
+                "libhardware",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgf_hal",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libgf_hal.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libgf_ca",
+                "libhardware",
+                "liblog",
+                "libbinder",
+                "libutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgoodixfingerprintd_binder",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libgoodixfingerprintd_binder.so",
+            ],
+            shared_libs: [
+                "libbinder",
+                "liblog",
+                "libhardware",
+                "libutils",
+                "libgf_hal",
+                "libgf_ca",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
 }
 
 prebuilt_etc_xml {
@@ -14,5 +355,70 @@ prebuilt_etc_xml {
     src: "proprietary/vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.oneplus.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "android.hardware.biometrics.fingerprint@2.1-service.oneplus",
+    owner: "oneplus",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.oneplus",
+            ],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libhidlbase",
+                "libhidltransport",
+                "libhardware",
+                "libutils",
+                "android.hardware.biometrics.fingerprint@2.1",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    relative_install_path: "hw",
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "android.hardware.keymaster@3.0-service-qti",
+    owner: "oneplus",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/hw/android.hardware.keymaster@3.0-service-qti",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libbase",
+                "libutils",
+                "libhardware_legacy",
+                "libhardware",
+                "libhidlbase",
+                "android.hardware.keymaster@3.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    relative_install_path: "hw",
     soc_specific: true,
 }
